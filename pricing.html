@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Page One Heritage</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&family=Source+Code+Pro:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#F5F2F9;color:#1A1128}
+
+/* NAV */
+.poe-nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2.5rem;background:#F5F2F9;border-bottom:1px solid #C8B8E0;position:sticky;top:0;z-index:100}
+.poe-nav-logo{font-family:'Playfair Display',serif;font-size:17px;font-weight:500;color:#1A1128;text-decoration:none;display:block}
+.poe-nav-logo small{display:block;font-family:'Inter',sans-serif;font-size:8px;font-weight:300;letter-spacing:0.2em;text-transform:uppercase;color:#7A5A9A;margin-top:2px}
+.poe-nav-links{display:flex;gap:1.75rem;align-items:center}
+.poe-nav-links a{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#7A5A9A;font-weight:300;text-decoration:none}
+.poe-nav-links a:hover{color:#7A3A9A}
+.poe-nav-links a.active{color:#7A3A9A;border-bottom:1px solid #7A3A9A;padding-bottom:1px}
+.poe-nav-cta{display:inline-block;padding:0.45rem 1.25rem;background:#7A3A9A;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:#fff;font-weight:400;border:none;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:none}
+.poe-nav-cta:hover{background:#6A2A8A}
+
+/* PAGE HERO */
+.page-hero{background:#2A1040;padding:3rem 2.5rem;border-bottom:1px solid #3A2050}
+.page-hero-kicker{font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:#9070B0;font-weight:300;margin-bottom:0.75rem}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:36px;font-weight:400;color:#F0EAF8;line-height:1.2}
+.page-hero h1 em{font-style:italic;color:#C8A0E8}
+
+/* PRICING */
+.pricing-section{padding:2.5rem;background:#F5F2F9;border-bottom:1px solid #C8B8E0}
+.sec-kicker{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:#7A5A9A;font-weight:300;margin-bottom:0.4rem}
+.sec-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:500;color:#1A1128;margin-bottom:1.5rem}
+
+.pricing-main{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#C8B8E0;margin-bottom:1.5rem}
+.price-card-lg{background:#EDE8F5;padding:2rem}
+.price-card-lg .label{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#7A5A9A;font-weight:300;margin-bottom:0.5rem}
+.price-card-lg .amount{font-family:'Playfair Display',serif;font-size:52px;font-weight:400;color:#2A1040;line-height:1;margin-bottom:0.25rem}
+.price-card-lg .unit{font-size:12px;color:#7A5A9A;font-weight:300;margin-bottom:1rem}
+.price-card-lg .desc{font-size:13px;color:#4A3060;font-weight:300;line-height:1.75}
+.price-card-lg.dark{background:#2A1040}
+.price-card-lg.dark .label{color:#9070B0}
+.price-card-lg.dark .amount{color:#C8A0E8}
+.price-card-lg.dark .unit{color:#9070B0}
+.price-card-lg.dark .desc{color:#B090C8}
+.req-badge{display:inline-block;font-size:8px;letter-spacing:0.16em;text-transform:uppercase;background:#3A1A58;color:#9A60C0;padding:2px 8px;margin-bottom:0.75rem}
+
+/* ROUNDING BOX */
+.rounding-box{background:#2A1040;border-left:3px solid #9A60C0;padding:1.25rem 1.5rem;margin-bottom:1.5rem;display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start}
+.r-icon{width:38px;height:38px;border-radius:50%;background:#3A1A58;border:0.5px solid #9A60C0;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;color:#C8A0E8}
+.r-text h3{font-family:'Playfair Display',serif;font-size:15px;font-weight:500;color:#F0EAF8;margin-bottom:0.35rem}
+.r-text p{font-size:12px;color:#B090C8;font-weight:300;line-height:1.75}
+.r-text p strong{color:#C8A0E8;font-weight:400}
+.r-examples{display:flex;gap:0.75rem;margin-top:0.75rem;flex-wrap:wrap}
+.r-pill{background:#1A0828;border:0.5px solid #4A2868;padding:0.35rem 0.85rem;font-size:11px;color:#9A60C0;font-weight:300}
+.r-pill span{color:#C8A0E8;font-weight:400}
+
+/* NEVER CHARGED */
+.never-charged{background:#F5F2F9;border:0.5px solid #C8B8E0;border-left:2px solid #9A60C0;padding:1.25rem 1.5rem;margin-bottom:1.5rem}
+.nc-label{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#7A5A9A;font-weight:300;margin-bottom:0.75rem}
+.nc-item{display:flex;align-items:center;gap:0.6rem;font-size:12px;color:#4A3060;font-weight:300;margin-bottom:0.4rem}
+.nc-line{width:14px;height:1px;background:#9A60C0;flex-shrink:0}
+
+/* DEPOSIT CARD */
+.deposit-card{background:#EDE8F5;border:0.5px solid #C8B8E0;padding:1.5rem;margin-bottom:1.5rem;border-left:2px solid #7A3A9A}
+.deposit-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:500;color:#1A1128;margin-bottom:0.5rem}
+.deposit-body{font-size:13px;color:#4A3060;font-weight:300;line-height:1.8;margin-bottom:1.25rem}
+.deposit-breakdown{background:#F5F2F9;border:0.5px solid #C8B8E0;padding:1rem}
+.dep-line{display:flex;justify-content:space-between;padding:0.3rem 0;border-bottom:0.5px solid #C8B8E0;font-size:12px}
+.dep-line:last-of-type{border-bottom:none}
+.dep-label{color:#7A5A9A;font-weight:300}
+.dep-amt{font-family:'Source Code Pro',monospace;color:#2A1040;font-weight:400}
+.dep-total{display:flex;justify-content:space-between;margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid #C8B8E0}
+.dep-total-label{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#2A1040;font-weight:400}
+.dep-total-amt{font-family:'Source Code Pro',monospace;font-size:18px;color:#2A1040;font-weight:400}
+
+.btn-primary{display:inline-block;padding:0.7rem 2rem;background:#7A3A9A;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#fff;font-weight:400;text-decoration:none}
+.btn-primary:hover{background:#6A2A8A}
+
+/* FAQ */
+.faq-section{padding:2.5rem;background:#EDE8F5;border-bottom:1px solid #C8B8E0}
+.faq-list{display:flex;flex-direction:column}
+.faq-item{border-bottom:0.5px solid #C8B8E0;overflow:hidden}
+.faq-item:first-child{border-top:0.5px solid #C8B8E0}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 0;cursor:pointer;gap:1rem;user-select:none}
+.faq-q-text{font-family:'Playfair Display',serif;font-size:15px;font-weight:500;color:#1A1128;line-height:1.3}
+.faq-icon{width:22px;height:22px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border-radius:50%;border:0.5px solid #C8B8E0;background:#F5F2F9;font-size:14px;color:#7A3A9A;transition:all 0.2s}
+.faq-item.open .faq-icon{background:#7A3A9A;border-color:#7A3A9A;color:#fff}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.3s ease}
+.faq-item.open .faq-a{max-height:400px}
+.faq-a-inner{padding:0 0 1.1rem;font-size:13px;color:#4A3060;font-weight:300;line-height:1.8;max-width:680px}
+.faq-a-inner strong{font-weight:500;color:#1A1128}
+
+/* FOOTER CTA */
+.footer-cta{display:grid;grid-template-columns:1fr 1fr}
+.fcta-left{background:#2A1040;padding:2.5rem;border-right:1px solid #3A2050;display:flex;flex-direction:column;justify-content:center;gap:0.75rem}
+.fcta-left h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:400;color:#F0EAF8;line-height:1.3;margin:0}
+.fcta-left h2 em{font-style:italic;color:#C8A0E8}
+.fcta-left p{font-size:12px;line-height:1.7;color:#B090C8;font-weight:300;margin:0}
+.fcta-right{background:#F5F2F9;padding:2.5rem;display:flex;flex-direction:column;justify-content:center;gap:1.25rem}
+.ci{display:flex;align-items:center;gap:0.75rem}
+.ci-icon{width:34px;height:34px;background:#EDE8F5;border:0.5px solid #C8B8E0;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;color:#7A3A9A}
+.ci-text strong{display:block;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:#7A5A9A;font-weight:300}
+.ci-text span{font-size:13px;color:#1A1128;font-weight:400}
+
+.site-footer{padding:1rem 2.5rem;background:#F5F2F9;border-top:1px solid #C8B8E0;display:flex;justify-content:space-between}
+.site-footer p{font-size:11px;color:#9070B0;font-weight:300;letter-spacing:0.05em;margin:0}
+
+@media(max-width:768px){
+  .poe-nav{flex-direction:column;gap:1rem;padding:1rem 1.25rem}
+  .poe-nav-links{flex-wrap:wrap;justify-content:center;gap:0.75rem}
+  .pricing-main,.footer-cta{grid-template-columns:1fr}
+  .pricing-section,.faq-section{padding:1.5rem 1.25rem}
+  .rounding-box{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="poe-nav">
+  <a href="index.html" class="poe-nav-logo">Page One Heritage<small>Archival Research Services</small></a>
+  <div class="poe-nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="pricing.html" class="active">Pricing</a>
+    <a href="contact.html">Contact</a>
+    <a class="poe-nav-cta" href="request.html">Begin research</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <p class="page-hero-kicker">Transparent &nbsp;·&nbsp; No surprises</p>
+  <h1>Simple pricing.<br><em>You get what you pay for.</em></h1>
+</div>
+
+<div class="pricing-section">
+  <p class="sec-kicker">What it costs</p>
+  <p class="sec-title">Two fees. That's it.</p>
+
+  <div class="pricing-main">
+    <div class="price-card-lg">
+      <div class="label">Hourly rate</div>
+      <div class="amount">$55</div>
+      <div class="unit">per hour &nbsp;·&nbsp; one hour minimum</div>
+      <div class="desc">The clock starts when we begin pulling and reviewing records. You set the time cap — we call before going over it. Travel and document wait time are never charged.</div>
+    </div>
+    <div class="price-card-lg dark">
+      <div class="req-badge">Required on all projects</div>
+      <div class="label">Research log &amp; report</div>
+      <div class="amount">$10</div>
+      <div class="unit">flat fee &nbsp;·&nbsp; every project</div>
+      <div class="desc">Every project includes a written research log documenting all records searched, evidence found, and evidence not found. Required on every request — no exceptions.</div>
+    </div>
+  </div>
+
+  <div class="rounding-box">
+    <div class="r-icon">&#9711;</div>
+    <div class="r-text">
+      <h3>We round up — always</h3>
+      <p>Time is billed in <strong>full-hour increments, always rounded up.</strong> Every project has a <strong>minimum charge of one hour ($55) plus the $10 report fee = $65 minimum.</strong></p>
+      <div class="r-examples">
+        <div class="r-pill">45 min &rarr; <span>1 hr ($55)</span></div>
+        <div class="r-pill">1 hr 10 min &rarr; <span>2 hrs ($110)</span></div>
+        <div class="r-pill">2 hrs exactly &rarr; <span>2 hrs ($110)</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="never-charged">
+    <p class="nc-label">Never charged</p>
+    <div class="nc-item"><div class="nc-line"></div>Travel time to and from the library</div>
+    <div class="nc-item"><div class="nc-line"></div>Time spent waiting for documents to be pulled from storage</div>
+    <div class="nc-item"><div class="nc-line"></div>Sales tax — Texas does not tax professional research services</div>
+  </div>
+
+  <div class="deposit-card">
+    <div class="deposit-title">Booking deposit</div>
+    <div class="deposit-body">A deposit of <strong>$65.00</strong> is required to confirm your research request and add it to our visit queue. This covers your first hour of research and the mandatory report fee. Any additional hours worked are invoiced separately upon delivery.</div>
+    <div class="deposit-breakdown">
+      <div class="dep-line"><span class="dep-label">First hour of research</span><span class="dep-amt">$55.00</span></div>
+      <div class="dep-line"><span class="dep-label">Research log &amp; report fee</span><span class="dep-amt">$10.00</span></div>
+      <div class="dep-line"><span class="dep-label">Sales tax</span><span class="dep-amt" style="color:#C8B8E0">$0.00</span></div>
+      <div class="dep-total"><span class="dep-total-label">Deposit due today</span><span class="dep-total-amt">$65.00</span></div>
+    </div>
+  </div>
+
+  <div style="text-align:center;padding:0.5rem 0 1rem">
+    <a class="btn-primary" href="request.html">Begin your research &rarr;</a>
+  </div>
+</div>
+
+<div class="faq-section">
+  <p class="sec-kicker">Questions &amp; answers</p>
+  <p class="sec-title">Frequently asked questions</p>
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">How does billing work exactly?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">We charge <strong>$55/hr billed in full-hour increments, always rounded up,</strong> with a one-hour minimum. Every project also includes a mandatory <strong>$10 research log fee.</strong> So the minimum you will ever pay is $65. A $65 deposit is due upfront — this covers your first hour and the report fee. Any additional hours are invoiced on delivery.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">How do I know what to put in the scope?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">You need to identify the specific library, collection, box, file, and subject name before submitting. Use the library's online catalog to find call numbers and box/folder information. <strong>We do not locate resources for you</strong> — we retrieve items you have already identified. If you need help identifying what exists, request a discovery consultation first.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">What if the record isn't found?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">You still receive the full research log and pay for time worked. <strong>Negative evidence — documenting that a record was searched and not found — is a legitimate and valuable research outcome.</strong> Knowing a record doesn't exist saves you from searching for it again.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">How long does it take?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">We visit each library <strong>once per month</strong> and batch requests together. We confirm your booking within 2 business days of submission. If confirmed requests at a given library reach 8 hours of work before the scheduled visit, we go early. Plan for a wait of up to one month between submission and delivery.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">How do I pay?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">A <strong>$65 deposit</strong> is due upon confirmation via our secure payment page. Any balance beyond the first hour is invoiced by email after the visit and must be paid before scans are delivered.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">What file format are scans delivered in?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">High-resolution <strong>PDF and JPEG</strong> delivered via secure digital link. The research log is delivered as a PDF.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Can you research outside Texas?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">We currently operate exclusively at archives in Dallas, Fort Worth, Denton, and Houston. We do not travel outside our service area. Contact us if your record is held at another Texas institution — we may be able to help or refer you.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Is my information confidential?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">Yes. Your request details, research findings, and all documents are <strong>strictly confidential.</strong> We never share, publish, or discuss client information. All materials belong to you.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-text">Why is the deposit non-refundable?</span>
+        <span class="faq-icon">+</span>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner">Many manuscripts must be formally requested from library storage in advance — most institutions require <strong>a minimum of 7 business days' notice.</strong> The moment your request is confirmed, we begin that advance coordination on your behalf. This work cannot be undone, which is why the deposit is non-refundable once confirmed.</div></div>
+    </div>
+
+  </div>
+</div>
+
+<div class="footer-cta">
+  <div class="fcta-left">
+    <h2>Ready to get started?<br><em>We'll go for you.</em></h2>
+    <p>Submit your scoped request and we'll follow up within 2 business days.</p>
+    <div style="margin-top:0.5rem"><a class="btn-primary" href="request.html">Begin your research &rarr;</a></div>
+  </div>
+  <div class="fcta-right">
+    <div class="ci"><div class="ci-icon">&#9993;</div><div class="ci-text"><strong>Email</strong><span>admin@pageoneheritage.com</span></div></div>
+    <div class="ci"><div class="ci-icon">&#9742;</div><div class="ci-text"><strong>Phone</strong><span>281-301-5601</span></div></div>
+    <div class="ci"><div class="ci-icon">&#9679;</div><div class="ci-text"><strong>Based in</strong><span>Dallas, Fort Worth, Denton &amp; Houston, Texas</span></div></div>
+  </div>
+</div>
+
+<div class="site-footer">
+  <p>Page One Heritage &copy; 2025</p>
+  <p>Preserving the past for future generations</p>
+</div>
+
+<script>
+function toggleFaq(el) {
+  var item = el.parentElement;
+  var isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(i){
+    i.classList.remove('open');
+    i.querySelector('.faq-icon').textContent = '+';
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+    el.querySelector('.faq-icon').textContent = '−';
+  }
+}
+</script>
+</body>
+</html>
