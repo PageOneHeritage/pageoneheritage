@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Page One Heritage</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#F5F2F9;color:#1A1128}
+
+/* NAV */
+.poe-nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2.5rem;background:#F5F2F9;border-bottom:1px solid #C8B8E0;position:sticky;top:0;z-index:100}
+.poe-nav-logo{font-family:'Playfair Display',serif;font-size:17px;font-weight:500;color:#1A1128;text-decoration:none;display:block}
+.poe-nav-logo small{display:block;font-family:'Inter',sans-serif;font-size:8px;font-weight:300;letter-spacing:0.2em;text-transform:uppercase;color:#7A5A9A;margin-top:2px}
+.poe-nav-links{display:flex;gap:1.75rem;align-items:center}
+.poe-nav-links a{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#7A5A9A;font-weight:300;text-decoration:none}
+.poe-nav-links a:hover{color:#7A3A9A}
+.poe-nav-links a.active{color:#7A3A9A;border-bottom:1px solid #7A3A9A;padding-bottom:1px}
+.poe-nav-cta{display:inline-block;padding:0.45rem 1.25rem;background:#7A3A9A;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:#fff;font-weight:400;border:none;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:none}
+.poe-nav-cta:hover{background:#6A2A8A}
+
+/* PAGE HERO */
+.page-hero{background:#2A1040;padding:3rem 2.5rem;border-bottom:1px solid #3A2050}
+.page-hero-kicker{font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:#9070B0;font-weight:300;margin-bottom:0.75rem}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:36px;font-weight:400;color:#F0EAF8;line-height:1.2}
+.page-hero h1 em{font-style:italic;color:#C8A0E8}
+
+/* TABS */
+.tab-row{display:flex;gap:1rem;padding:1.5rem 2.5rem;background:#F5F2F9;border-bottom:1px solid #C8B8E0}
+.tab-btn{padding:0.4rem 1.25rem;border:0.5px solid #C8B8E0;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#7A5A9A;cursor:pointer;font-weight:300;background:transparent;font-family:'Inter',sans-serif;transition:all 0.15s}
+.tab-btn.active{background:#7A3A9A;border-color:#7A3A9A;color:#fff}
+.tab-btn:hover:not(.active){border-color:#7A3A9A;color:#7A3A9A}
+.tab-content{display:none}
+.tab-content.active{display:block}
+
+/* ABOUT TAB */
+.about-intro{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid #C8B8E0}
+.about-left{background:#EDE8F5;padding:3rem 2.5rem}
+.about-left h2{font-family:'Playfair Display',serif;font-size:26px;font-weight:400;color:#1A1128;line-height:1.3;margin-bottom:1.25rem}
+.about-left h2 em{font-style:italic;color:#7A3A9A}
+.about-left p{font-size:13px;color:#4A3060;font-weight:300;line-height:1.85;margin-bottom:1rem}
+.about-right{background:#2A1040;padding:3rem 2.5rem;display:flex;flex-direction:column;justify-content:center;gap:1.75rem}
+.about-stat{border-left:2px solid #9A60C0;padding-left:1rem}
+.about-stat-num{font-family:'Playfair Display',serif;font-size:40px;font-weight:400;color:#C8A0E8;line-height:1}
+.about-stat-label{font-size:11px;color:#9070B0;font-weight:300;margin-top:4px}
+
+.values-section{padding:2.5rem;background:#F5F2F9;border-bottom:1px solid #C8B8E0}
+.sec-kicker{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:#7A5A9A;font-weight:300;margin-bottom:0.4rem}
+.sec-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:500;color:#1A1128;margin-bottom:1.5rem}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#C8B8E0}
+.value-card{background:#EDE8F5;padding:1.5rem}
+.value-icon{width:38px;height:38px;border:0.5px solid #C8B8E0;display:flex;align-items:center;justify-content:center;background:#F5F2F9;margin-bottom:0.85rem;font-size:18px;color:#7A3A9A}
+.value-card h3{font-family:'Playfair Display',serif;font-size:15px;font-weight:500;color:#1A1128;margin-bottom:0.4rem}
+.value-card p{font-size:12px;color:#4A3060;font-weight:300;line-height:1.75}
+
+/* HOW IT WORKS TAB */
+.timeline-section{padding:2.5rem;background:#F5F2F9;border-bottom:1px solid #C8B8E0}
+.timeline{display:flex;flex-direction:column;gap:0}
+.tl-item{display:grid;grid-template-columns:52px 1fr;gap:1.5rem}
+.tl-left{display:flex;flex-direction:column;align-items:center}
+.tl-num{width:38px;height:38px;border-radius:50%;background:#7A3A9A;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:15px;font-weight:400;color:#fff;flex-shrink:0}
+.tl-line{width:1px;background:#C8B8E0;flex:1;margin:4px 0}
+.tl-item:last-child .tl-line{display:none}
+.tl-right{padding-bottom:2rem}
+.tl-item:last-child .tl-right{padding-bottom:0}
+.tl-tag{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#9A60C0;font-weight:300;margin-bottom:0.35rem}
+.tl-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:500;color:#1A1128;margin-bottom:0.5rem}
+.tl-body{font-size:13px;color:#4A3060;font-weight:300;line-height:1.8}
+.tl-body strong{font-weight:500;color:#1A1128}
+.schedule-box{background:#2A1040;border-left:3px solid #9A60C0;padding:1rem 1.25rem;margin-top:0.75rem;display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start}
+.sc-icon{width:36px;height:36px;border-radius:50%;background:#3A1A58;border:0.5px solid #9A60C0;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;color:#C8A0E8}
+.sc-text h4{font-family:'Playfair Display',serif;font-size:13px;font-weight:500;color:#F0EAF8;margin-bottom:0.25rem}
+.sc-text p{font-size:11px;color:#B090C8;font-weight:300;line-height:1.7}
+.sc-text p strong{color:#C8A0E8;font-weight:400}
+
+/* ARCHIVE NETWORK TAB */
+.archive-net{padding:2.5rem;background:#EDE8F5;border-bottom:1px solid #C8B8E0}
+.archive-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#C8B8E0}
+.archive-cell{background:#EDE8F5;padding:1.25rem 1.5rem}
+.archive-city{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#7A5A9A;font-weight:300;margin-bottom:3px}
+.archive-name{font-family:'Playfair Display',serif;font-size:14px;font-weight:500;color:#1A1128;margin-bottom:3px}
+.archive-desc{font-size:11px;color:#7A5A9A;font-weight:300;margin-bottom:6px}
+.archive-addr{font-size:10px;color:#6A4A8A;font-weight:300;margin-bottom:4px}
+.archive-link{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#7A3A9A;text-decoration:none;font-weight:400}
+.archive-link:hover{text-decoration:underline}
+.archive-cell.coming{background:#F5F2F9}
+.archive-cell.coming .archive-name{color:#C8B8E0}
+.archive-cell.coming .archive-desc{color:#C8B8E0}
+
+/* DIGITAL DATABASES */
+.digital-section{padding:2.5rem;background:#F5F2F9;border-bottom:1px solid #C8B8E0}
+.db-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#C8B8E0;margin-top:1rem}
+.db-card{background:#F5F2F9;padding:1rem}
+.db-name{font-family:'Playfair Display',serif;font-size:13px;font-weight:500;color:#1A1128;margin-bottom:3px}
+.db-desc{font-size:11px;color:#7A5A9A;font-weight:300;line-height:1.6}
+
+/* FOOTER CTA */
+.footer-cta{display:grid;grid-template-columns:1fr 1fr}
+.fcta-left{background:#2A1040;padding:2.5rem;border-right:1px solid #3A2050;display:flex;flex-direction:column;justify-content:center;gap:0.75rem}
+.fcta-left h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:400;color:#F0EAF8;line-height:1.3;margin:0}
+.fcta-left h2 em{font-style:italic;color:#C8A0E8}
+.fcta-left p{font-size:12px;line-height:1.7;color:#B090C8;font-weight:300;margin:0}
+.fcta-right{background:#F5F2F9;padding:2.5rem;display:flex;flex-direction:column;justify-content:center;gap:1.25rem}
+.ci{display:flex;align-items:center;gap:0.75rem}
+.ci-icon{width:34px;height:34px;background:#EDE8F5;border:0.5px solid #C8B8E0;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;color:#7A3A9A}
+.ci-text strong{display:block;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:#7A5A9A;font-weight:300}
+.ci-text span{font-size:13px;color:#1A1128;font-weight:400}
+.btn-primary{display:inline-block;padding:0.7rem 2rem;background:#7A3A9A;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#fff;font-weight:400;text-decoration:none}
+.btn-primary:hover{background:#6A2A8A}
+
+/* FOOTER */
+.site-footer{padding:1rem 2.5rem;background:#F5F2F9;border-top:1px solid #C8B8E0;display:flex;justify-content:space-between}
+.site-footer p{font-size:11px;color:#9070B0;font-weight:300;letter-spacing:0.05em;margin:0}
+
+/* MOBILE */
+@media(max-width:768px){
+  .poe-nav{flex-direction:column;gap:1rem;padding:1rem 1.25rem}
+  .poe-nav-links{flex-wrap:wrap;justify-content:center;gap:0.75rem}
+  .about-intro,.values-grid,.archive-grid,.db-grid,.footer-cta{grid-template-columns:1fr}
+  .tab-row{flex-wrap:wrap;gap:0.5rem;padding:1rem 1.25rem}
+  .timeline-section,.archive-net,.digital-section,.values-section{padding:1.5rem 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<nav class="poe-nav">
+  <a href="index.html" class="poe-nav-logo">Page One Heritage<small>Archival Research Services</small></a>
+  <div class="poe-nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact</a>
+    <a class="poe-nav-cta" href="request.html">Begin research</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <p class="page-hero-kicker">Texas-based &nbsp;·&nbsp; In-person retrieval</p>
+  <h1>We go where<br><em>the records are.</em></h1>
+</div>
+
+<div class="tab-row">
+  <button class="tab-btn active" onclick="showTab('about')">About us</button>
+  <button class="tab-btn" onclick="showTab('hiw')">How it works</button>
+  <button class="tab-btn" onclick="showTab('archives')">Archive network</button>
+  <button class="tab-btn" onclick="showTab('digital')">Digital databases</button>
+</div>
+
+<!-- ABOUT TAB -->
+<div class="tab-content active" id="tab-about">
+  <div class="about-intro">
+    <div class="about-left">
+      <h2>We're not genealogists.<br><em>We're your boots on the ground.</em></h2>
+      <p>Page One Heritage is a document retrieval and scanning service. We go to Texas archives and libraries in person, locate the specific records you've identified, scan them, and send them to you — along with a detailed log of everything we searched.</p>
+      <p>Countless valuable records have never been digitized and likely never will be. The only way to get them is to show up in person. If you can't make the trip, we go for you.</p>
+      <p>We are not researchers. We do not interpret records, build family trees, or solve genealogical puzzles. You tell us exactly what you need and where it is. We go get it.</p>
+    </div>
+    <div class="about-right">
+      <div class="about-stat"><div class="about-stat-num">7</div><div class="about-stat-label">Archives and libraries served across Texas</div></div>
+      <div class="about-stat"><div class="about-stat-num">4</div><div class="about-stat-label">Texas metros — Dallas, Fort Worth, Denton, Houston</div></div>
+      <div class="about-stat"><div class="about-stat-num">1&times;</div><div class="about-stat-label">Monthly visits per library, more if demand warrants</div></div>
+      <div class="about-stat"><div class="about-stat-num">100%</div><div class="about-stat-label">In-person, on-site — no shortcuts</div></div>
+    </div>
+  </div>
+  <div class="values-section">
+    <p class="sec-kicker">Our principles</p>
+    <p class="sec-title">What we stand for</p>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">&#10003;</div>
+        <h3>Honest documentation</h3>
+        <p>We log everything — including what wasn't there. Negative evidence is real evidence.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">&#9711;</div>
+        <h3>Your cap, your call</h3>
+        <p>You set the limit. We stop when you say stop and call before going over.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">&#9632;</div>
+        <h3>Confidential always</h3>
+        <p>Your request details and documents are yours. We never share or publish client information.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS TAB -->
+<div class="tab-content" id="tab-hiw">
+  <div class="timeline-section">
+    <p class="sec-kicker">Step by step</p>
+    <p class="sec-title">How it works</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-num">1</div><div class="tl-line"></div></div>
+        <div class="tl-right">
+          <p class="tl-tag">Submit</p>
+          <h3 class="tl-title">You submit a scoped request</h3>
+          <p class="tl-body">Using our online intake form, you provide the specific library, collection, box, file, and subject name. <strong>You do the research — we do the retrieval.</strong> If you're unsure of the exact location, request a discovery consultation first.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-num">2</div><div class="tl-line"></div></div>
+        <div class="tl-right">
+          <p class="tl-tag">Confirm + deposit</p>
+          <h3 class="tl-title">We confirm your scope and collect the deposit</h3>
+          <p class="tl-body">Within <strong>2 business days</strong> we review your request and confirm it's actionable. A <strong>$65 deposit</strong> (first hour + $10 report fee) is required to secure your booking. This is non-refundable once confirmed.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-num">3</div><div class="tl-line"></div></div>
+        <div class="tl-right">
+          <p class="tl-tag">Schedule</p>
+          <h3 class="tl-title">Your request joins the next visit queue</h3>
+          <p class="tl-body">We visit each library <strong>once per month</strong> and batch requests together. There will be a wait between submission and research — this is expected.</p>
+          <div class="schedule-box">
+            <div class="sc-icon">&#9776;</div>
+            <div class="sc-text"><h4>Early visit policy</h4><p>If confirmed requests add up to <strong>8 hours of work</strong> at a given library before the monthly visit, we go early.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-num">4</div><div class="tl-line"></div></div>
+        <div class="tl-right">
+          <p class="tl-tag">Retrieval</p>
+          <h3 class="tl-title">We go to the archive and scan</h3>
+          <p class="tl-body">On visit day we pull your records, scan everything relevant, and log every item searched. <strong>Active retrieval time only</strong> — travel and wait time are never billed. If we reach your cap, we stop and call you.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-num">5</div><div class="tl-line"></div></div>
+        <div class="tl-right">
+          <p class="tl-tag">Delivery + balance</p>
+          <h3 class="tl-title">You pay the balance, then receive your scans</h3>
+          <p class="tl-body">We send you a balance invoice for any hours beyond the first. Once paid, your scans and research log are delivered digitally. Time is billed in <strong>full-hour increments, always rounded up.</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ARCHIVE NETWORK TAB -->
+<div class="tab-content" id="tab-archives">
+  <div class="archive-net">
+    <p class="sec-kicker">Where we work</p>
+    <p class="sec-title">Our archive network</p>
+    <div class="archive-grid">
+      <div class="archive-cell">
+        <div class="archive-city">Dallas</div>
+        <div class="archive-name">J. Erik Jonsson Central Library</div>
+        <div class="archive-desc">Special collections, genealogy, Texas history</div>
+        <div class="archive-addr">1515 Young Street, Dallas, TX 75201</div>
+        <a class="archive-link" href="https://www.dallaslibrary.org/central-library" target="_blank">Visit website &rarr;</a>
+      </div>
+      <div class="archive-cell">
+        <div class="archive-city">Fort Worth</div>
+        <div class="archive-name">National Archives (NARA)</div>
+        <div class="archive-desc">Federal records, military, land, immigration</div>
+        <div class="archive-addr">1400 John Burgess Drive, Fort Worth, TX 76140</div>
+        <a class="archive-link" href="https://www.archives.gov/fort-worth" target="_blank">Visit website &rarr;</a>
+      </div>
+      <div class="archive-cell">
+        <div class="archive-city">Denton</div>
+        <div class="archive-name">Emily Fowler Central Library</div>
+        <div class="archive-desc">Local history, genealogy, Denton County records</div>
+        <div class="archive-addr">502 Oakland Street, Denton, TX 76201</div>
+        <a class="archive-link" href="https://library.cityofdenton.com" target="_blank">Visit website &rarr;</a>
+      </div>
+      <div class="archive-cell">
+        <div class="archive-city">Denton</div>
+        <div class="archive-name">UNT Special Collections</div>
+        <div class="archive-desc">North Texas history, manuscripts, rare books</div>
+        <div class="archive-addr">1155 Union Circle, Denton, TX 76203</div>
+        <a class="archive-link" href="https://library.unt.edu/special-collections/" target="_blank">Visit website &rarr;</a>
+      </div>
+      <div class="archive-cell">
+        <div class="archive-city">Denton</div>
+        <div class="archive-name">Denton County Office of History &amp; Culture</div>
+        <div class="archive-desc">County records, local history, photographs</div>
+        <div class="archive-addr">110 W Hickory Street, Denton, TX 76201</div>
+        <a class="archive-link" href="https://www.dentoncounty.gov/289/History-Culture" target="_blank">Visit website &rarr;</a>
+      </div>
+      <div class="archive-cell">
+        <div class="archive-city">Houston</div>
+        <div class="archive-name">Clayton Library</div>
+        <div class="archive-desc">One of the top genealogical libraries in the US</div>
+        <div class="archive-addr">5300 Caroline Street, Houston, TX 77004</div>
+        <a class="archive-link" href="https://houstonlibrary.org/fhrc" target="_blank">Visit website &rarr;</a>
+      </div>
+      <div class="archive-cell">
+        <div class="archive-city">Houston</div>
+        <div class="archive-name">Houston History Research Center</div>
+        <div class="archive-desc">City and Texas history, archives, photographs</div>
+        <div class="archive-addr">550 McKinney Street, Houston, TX 77002</div>
+        <a class="archive-link" href="https://houstonlibrary.org/hhrc" target="_blank">Visit website &rarr;</a>
+      </div>
+      <div class="archive-cell coming">
+        <div class="archive-city" style="color:#C8B8E0">Coming soon</div>
+        <div class="archive-name">Additional Texas institutions</div>
+        <div class="archive-desc">Contact us if your record is held elsewhere in Texas</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DIGITAL DATABASES TAB -->
+<div class="tab-content" id="tab-digital">
+  <div class="digital-section">
+    <p class="sec-kicker">Our paid subscriptions</p>
+    <p class="sec-title">Digital database access</p>
+    <p style="font-size:13px;color:#4A3060;font-weight:300;line-height:1.8;max-width:680px;margin-bottom:0.5rem">We maintain paid subscriptions to the databases below. If you need a search run on any of these without purchasing an annual subscription yourself, include them in your research request. These are remote searches we perform on our end — not library on-site resources. Billed at the same $55/hr rate.</p>
+    <div class="db-grid">
+      <div class="db-card"><div class="db-name">Ancestry.com</div><div class="db-desc">Census, vital records, immigration, military records</div></div>
+      <div class="db-card"><div class="db-name">FamilySearch</div><div class="db-desc">Billions of free LDS records, international coverage</div></div>
+      <div class="db-card"><div class="db-name">MyHeritage</div><div class="db-desc">International records, DNA integration</div></div>
+      <div class="db-card"><div class="db-name">FindMyPast</div><div class="db-desc">UK, Ireland, US and Commonwealth records</div></div>
+      <div class="db-card"><div class="db-name">Fold3</div><div class="db-desc">US military records and historical documents</div></div>
+      <div class="db-card"><div class="db-name">Newspapers.com</div><div class="db-desc">Historical US newspaper archives</div></div>
+      <div class="db-card"><div class="db-name">NYG&amp;B</div><div class="db-desc">New York Genealogical &amp; Biographical Society</div></div>
+      <div class="db-card"><div class="db-name">GenBank</div><div class="db-desc">Genetic sequence and biological data searches</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="footer-cta">
+  <div class="fcta-left">
+    <h2>Ready to get started?<br><em>We'll go for you.</em></h2>
+    <p>Submit your scoped request and we'll follow up within 2 business days.</p>
+    <div style="margin-top:0.5rem"><a class="btn-primary" href="request.html">Begin your research &rarr;</a></div>
+  </div>
+  <div class="fcta-right">
+    <div class="ci"><div class="ci-icon">&#9993;</div><div class="ci-text"><strong>Email</strong><span>admin@pageoneheritage.com</span></div></div>
+    <div class="ci"><div class="ci-icon">&#9742;</div><div class="ci-text"><strong>Phone</strong><span>281-301-5601</span></div></div>
+    <div class="ci"><div class="ci-icon">&#9679;</div><div class="ci-text"><strong>Based in</strong><span>Dallas, Fort Worth, Denton &amp; Houston, Texas</span></div></div>
+  </div>
+</div>
+
+<div class="site-footer">
+  <p>Page One Heritage &copy; 2025</p>
+  <p>Preserving the past for future generations</p>
+</div>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.tab-content').forEach(function(t){ t.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+  document.getElementById('tab-' + id).classList.add('active');
+  event.target.classList.add('active');
+}
+</script>
+</body>
+</html>
