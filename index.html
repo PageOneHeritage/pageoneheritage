@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page One Heritage — Archival Research Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#F5F2F9;color:#1A1128;margin:0;padding:0}
+
+/* NAV */
+.poe-nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2.5rem;background:transparent;border-bottom:0.5px solid rgba(200,160,232,0.25);position:absolute;top:0;left:0;right:0;z-index:10}
+.poe-nav-logo{font-family:'Playfair Display',serif;font-size:17px;font-weight:500;color:#F0EAF8;cursor:pointer}
+.poe-nav-logo small{display:block;font-family:'Inter',sans-serif;font-size:8px;font-weight:300;letter-spacing:0.2em;text-transform:uppercase;color:#C8A0E8;margin-top:2px}
+.poe-nav-links{display:flex;gap:1.75rem;align-items:center}
+.poe-nav-links a{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#E0D0F4;font-weight:300;text-decoration:none}
+.poe-nav-links a:hover{color:#C8A0E8}
+.poe-nav-cta{display:inline-block;padding:0.45rem 1.25rem;background:#7A3A9A;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:#fff;font-weight:400;border:none;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:none}
+.poe-nav-cta:hover{background:#6A2A8A}
+
+/* HERO */
+.poe-hero-wrap{position:relative;width:100%;overflow:hidden}
+.poe-hero{position:relative;height:680px;overflow:hidden}
+.poe-hero-img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.poe-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(20,5,40,0.25) 0%,rgba(20,5,40,0.1) 35%,rgba(20,5,40,0.82) 100%)}
+.poe-hero-content{position:absolute;bottom:0;left:0;right:0;padding:2.5rem 2.5rem 3.5rem}
+.poe-hero-kicker{font-size:9px;letter-spacing:0.26em;text-transform:uppercase;color:#C8A0E8;font-weight:300;margin-bottom:0.75rem}
+.poe-hero-h1{font-family:'Playfair Display',serif;font-size:46px;font-weight:400;color:#F0EAF8;line-height:1.1;margin-bottom:1rem}
+.poe-hero-h1 em{font-style:italic;color:#C8A0E8}
+.poe-hero-sub{font-size:14px;color:#C8B0E0;font-weight:300;line-height:1.8;max-width:500px;margin-bottom:1.75rem}
+.poe-btn-primary{display:inline-block;padding:0.7rem 2rem;background:#7A3A9A;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#fff;font-weight:400;border:none;font-family:'Inter',sans-serif;cursor:pointer;text-decoration:none}
+.poe-btn-primary:hover{background:#6A2A8A}
+
+/* THREE STEP + LIBRARIES */
+.poe-three-col-block{background:#F5F2F9;border-bottom:1px solid #C8B8E0}
+.poe-three-col-inner{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid #C8B8E0}
+.poe-icon-col{padding:2rem 1.5rem;border-right:1px solid #C8B8E0;text-align:center;display:flex;flex-direction:column;align-items:center;gap:0.75rem}
+.poe-icon-col:last-child{border-right:none}
+.poe-icon-circle{width:52px;height:52px;border-radius:50%;background:#EDE8F5;border:1px solid #C8B8E0;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:22px;color:#7A3A9A}
+.poe-icon-col h3{font-family:'Playfair Display',serif;font-size:14px;font-weight:500;color:#1A1128;margin:0}
+.poe-icon-col p{font-size:11px;line-height:1.7;color:#6A4A8A;font-weight:300;margin:0}
+.poe-lib-inner{display:grid;grid-template-columns:1fr 1fr 1fr}
+.poe-lib-col{padding:1.5rem}
+.poe-lib-col:first-child{padding-left:2rem;border-right:1px solid #C8B8E0}
+.poe-lib-col:nth-child(2){border-right:1px solid #C8B8E0}
+.poe-lib-col:last-child{padding-right:2rem}
+.poe-lib-label{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#7A5A9A;font-weight:300;margin-bottom:0.65rem}
+.poe-lib-item{display:flex;align-items:center;gap:8px;padding:0.28rem 0;font-size:11px;color:#1A1128;font-weight:300}
+.poe-lib-dot{width:4px;height:4px;border-radius:50%;flex-shrink:0}
+.poe-dot-purple{background:#9A60C0}
+.poe-dot-lavender{background:#B090D0}
+.poe-dot-indigo{background:#6040A0}
+
+/* DELIVERABLES */
+.poe-deliverables{background:#2A1040;padding:2rem 2.5rem;border-bottom:1px solid #3A2050}
+.poe-del-kicker{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:#9070B0;font-weight:300;margin-bottom:1.25rem}
+.poe-del-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#3A2050}
+.poe-del-card{background:#2A1040;padding:1.25rem;display:flex;flex-direction:column;gap:0.5rem}
+.poe-del-icon{width:36px;height:36px;border:0.5px solid #5A3A70;display:flex;align-items:center;justify-content:center;background:#1A0828;font-size:18px;color:#C8A0E8}
+.poe-del-card h3{font-family:'Playfair Display',serif;font-size:13px;font-weight:500;color:#E0D0F4;margin:0}
+.poe-del-card p{font-size:11px;line-height:1.65;color:#9070B0;font-weight:300;margin:0}
+
+/* PRICING */
+.poe-pricing-strip{padding:2rem 2.5rem;background:#EDE8F5;border-bottom:1px solid #C8B8E0}
+.poe-sec-row{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.5rem;padding-bottom:0.65rem;border-bottom:1px solid #C8B8E0}
+.poe-sec-row h2{font-family:'Playfair Display',serif;font-size:20px;font-weight:500;color:#1A1128;margin:0}
+.poe-sec-row span{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#7A5A9A;font-weight:300}
+.poe-price-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#C8B8E0}
+.poe-price-card{background:#EDE8F5;padding:1.25rem;display:flex;flex-direction:column;gap:0.4rem}
+.poe-price-lbl{font-size:9px;letter-spacing:0.2em;text-transform:uppercase;color:#7A5A9A;font-weight:300}
+.poe-price-amt{font-family:'Playfair Display',serif;font-size:26px;font-weight:400;color:#2A1040}
+.poe-price-desc{font-size:11px;color:#4A3060;font-weight:300;line-height:1.65}
+
+/* FOOTER CTA */
+.poe-footer-cta{display:grid;grid-template-columns:1fr 1fr}
+.poe-fcta-left{background:#2A1040;padding:2.5rem;border-right:1px solid #3A2050;display:flex;flex-direction:column;justify-content:center;gap:0.75rem}
+.poe-fcta-left h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:400;color:#F0EAF8;line-height:1.3;margin:0}
+.poe-fcta-left h2 em{font-style:italic;color:#C8A0E8}
+.poe-fcta-left p{font-size:12px;line-height:1.7;color:#B090C8;font-weight:300;margin:0}
+.poe-fcta-right{background:#F5F2F9;padding:2.5rem;display:flex;flex-direction:column;justify-content:center;gap:1.25rem}
+.poe-ci{display:flex;align-items:center;gap:0.75rem}
+.poe-ci-icon{width:34px;height:34px;background:#EDE8F5;border:0.5px solid #C8B8E0;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px;color:#7A3A9A}
+.poe-ci-text strong{display:block;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:#7A5A9A;font-weight:300}
+.poe-ci-text span{font-size:13px;color:#1A1128;font-weight:400}
+
+/* FOOTER */
+.poe-site-footer{padding:1rem 2.5rem;background:#F5F2F9;border-top:1px solid #C8B8E0;display:flex;justify-content:space-between}
+.poe-site-footer p{font-size:11px;color:#9070B0;font-weight:300;letter-spacing:0.05em;margin:0}
+
+/* MOBILE */
+@media(max-width:768px){
+  .poe-nav{flex-direction:column;gap:1rem;padding:1rem 1.25rem}
+  .poe-nav-links{flex-wrap:wrap;justify-content:center;gap:0.75rem}
+  .poe-hero{height:640px}
+  .poe-hero-h1{font-size:32px}
+  .poe-hero-content{padding:1.5rem 1.25rem 2.5rem}
+  .poe-three-col-inner,.poe-lib-inner,.poe-del-grid,.poe-price-grid,.poe-footer-cta{grid-template-columns:1fr}
+  .poe-icon-col,.poe-lib-col,.poe-fcta-left{border-right:none!important}
+  .poe-lib-col{padding-left:1.5rem!important;padding-right:1.5rem!important}
+  .poe-site-footer{flex-direction:column;gap:0.5rem}
+}
+</style>
+</head>
+<body>
+
+<div class="poe-hero-wrap">
+  <div class="poe-hero">
+    <!-- REPLACE THIS URL WITH YOUR IMAGE URL -->
+    <img class="poe-hero-img" src="https://tbd974368369.wordpress.com/wp-content/uploads/2026/04/background-no-logo-1.png" alt="Archive corridor">
+    <div class="poe-hero-overlay"></div>
+    <div class="poe-nav">
+      <div class="poe-nav-logo">Page One Heritage<small>Archival Research Services</small></div>
+      <div class="poe-nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="how-it-works.html">How it works</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="contact.html">Contact</a>
+        <a class="poe-nav-cta" href="request.html">Begin research</a>
+      </div>
+    </div>
+    <div class="poe-hero-content">
+      <p class="poe-hero-kicker">Texas-based &nbsp;·&nbsp; Research for hire &nbsp;·&nbsp; Dallas &nbsp;·&nbsp; Fort Worth &nbsp;·&nbsp; Denton &nbsp;·&nbsp; Houston</p>
+      <h1 class="poe-hero-h1">The answers are<br>in the archives.<br><em>We'll find them for you.</em></h1>
+      <p class="poe-hero-sub">Can't visit in person? We go on your behalf — scanning documents and logging every result, found or not.</p>
+      <a class="poe-btn-primary" href="request.html">Begin your research &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<div class="poe-three-col-block">
+  <div class="poe-three-col-inner">
+    <div class="poe-icon-col">
+      <div class="poe-icon-circle">1</div>
+      <h3>Tell us what you need</h3>
+      <p>Provide the specific library, collection, box, and subject</p>
+    </div>
+    <div class="poe-icon-col">
+      <div class="poe-icon-circle">2</div>
+      <h3>We go and scan</h3>
+      <p>On-site visit, high-quality document retrieval</p>
+    </div>
+    <div class="poe-icon-col">
+      <div class="poe-icon-circle">3</div>
+      <h3>You receive the log</h3>
+      <p>Scans plus full research log of found and negative evidence</p>
+    </div>
+  </div>
+  <div class="poe-lib-inner">
+    <div class="poe-lib-col">
+      <p class="poe-lib-label">Dallas &amp; Fort Worth</p>
+      <div class="poe-lib-item"><div class="poe-lib-dot poe-dot-purple"></div>Jonsson Central Library</div>
+      <div class="poe-lib-item"><div class="poe-lib-dot poe-dot-purple"></div>National Archives (NARA)</div>
+    </div>
+    <div class="poe-lib-col">
+      <p class="poe-lib-label">Denton</p>
+      <div class="poe-lib-item"><div class="poe-lib-dot poe-dot-lavender"></div>Emily Fowler Central Library</div>
+      <div class="poe-lib-item"><div class="poe-lib-dot poe-dot-lavender"></div>UNT Special Collections</div>
+      <div class="poe-lib-item"><div class="poe-lib-dot poe-dot-lavender"></div>Denton Co. Office of History</div>
+    </div>
+    <div class="poe-lib-col">
+      <p class="poe-lib-label">Houston</p>
+      <div class="poe-lib-item"><div class="poe-lib-dot poe-dot-indigo"></div>Clayton Library</div>
+      <div class="poe-lib-item"><div class="poe-lib-dot poe-dot-indigo"></div>Houston History Research Center</div>
+    </div>
+  </div>
+</div>
+
+<div class="poe-deliverables">
+  <p class="poe-del-kicker">What you receive</p>
+  <div class="poe-del-grid">
+    <div class="poe-del-card">
+      <div class="poe-del-icon">&#9635;</div>
+      <h3>Scanned images</h3>
+      <p>High-quality digital scans of every relevant document located</p>
+    </div>
+    <div class="poe-del-card">
+      <div class="poe-del-icon">&#8801;</div>
+      <h3>Research log</h3>
+      <p>Every collection and item searched, documented in full</p>
+    </div>
+    <div class="poe-del-card">
+      <div class="poe-del-icon">&#9673;</div>
+      <h3>Negative evidence</h3>
+      <p>What was searched and not found — documented just as carefully</p>
+    </div>
+  </div>
+</div>
+
+<div class="poe-pricing-strip">
+  <div class="poe-sec-row">
+    <h2>How we charge</h2>
+    <span>Simple — two fees, no surprises</span>
+  </div>
+  <div class="poe-price-grid">
+    <div class="poe-price-card">
+      <div class="poe-price-lbl">Hourly rate</div>
+      <div class="poe-price-amt">$55/hr</div>
+      <div class="poe-price-desc">Active research time only. Travel and wait time never charged.</div>
+    </div>
+    <div class="poe-price-card">
+      <div class="poe-price-lbl">Report fee</div>
+      <div class="poe-price-amt">$10</div>
+      <div class="poe-price-desc">Required on every project. Covers your written research log.</div>
+    </div>
+    <div class="poe-price-card">
+      <div class="poe-price-lbl">Minimum charge</div>
+      <div class="poe-price-amt">$65</div>
+      <div class="poe-price-desc">One hour + report fee. Billed in full-hour increments, rounded up.</div>
+    </div>
+    <div class="poe-price-card">
+      <div class="poe-price-lbl">Deposit</div>
+      <div class="poe-price-amt">$65</div>
+      <div class="poe-price-desc">Due upfront to secure your booking. Non-refundable once confirmed.</div>
+    </div>
+  </div>
+</div>
+
+<div class="poe-footer-cta">
+  <div class="poe-fcta-left">
+    <h2>The record exists.<br><em>Let us find it for you.</em></h2>
+    <p>Submit your scoped request and we'll follow up within 2 business days.</p>
+    <div style="margin-top:0.5rem"><a class="poe-btn-primary" href="request.html">Begin your research &rarr;</a></div>
+  </div>
+  <div class="poe-fcta-right">
+    <div class="poe-ci">
+      <div class="poe-ci-icon">&#9993;</div>
+      <div class="poe-ci-text"><strong>Email</strong><span>admin@pageoneheritage.com</span></div>
+    </div>
+    <div class="poe-ci">
+      <div class="poe-ci-icon">&#9742;</div>
+      <div class="poe-ci-text"><strong>Phone</strong><span>281-301-5601</span></div>
+    </div>
+    <div class="poe-ci">
+      <div class="poe-ci-icon">&#9679;</div>
+      <div class="poe-ci-text"><strong>Based in</strong><span>Dallas, Fort Worth, Denton &amp; Houston, Texas</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="poe-site-footer">
+  <p>Page One Heritage &copy; 2025</p>
+  <p>Preserving the past for future generations</p>
+</div>
+
+</body>
+</html>
